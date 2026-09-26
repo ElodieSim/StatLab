@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Distributions — StatLab</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main class="container">
+    <span class="tag">Module 4</span>
+    <h1 style="margin-top:12px">Les distributions</h1>
+    <p class="lead">
+      La <em>distribution</em> d'une variable, c'est la façon dont ses valeurs se répartissent&nbsp;:
+      lesquelles sont fréquentes, lesquelles sont rares. On la visualise avec un <strong>histogramme</strong>.
+    </p>
+
+    <h2>La leçon</h2>
+    <div class="def-grid">
+      <div class="card">
+        <h3>📊 L'histogramme</h3>
+        <p>On découpe l'axe des valeurs en intervalles (les « classes »), et on dessine pour chacun une barre dont la hauteur est le nombre de valeurs qu'il contient.</p>
+      </div>
+      <div class="card">
+        <h3>🔔 La courbe en cloche</h3>
+        <p>Beaucoup de phénomènes (taille, erreurs de mesure…) résultent de <em>nombreux petits hasards qui s'additionnent</em>. Leur distribution prend alors une forme de cloche symétrique&nbsp;: la <strong>loi normale</strong>.</p>
+      </div>
+      <div class="card">
+        <h3>↗️ L'asymétrie</h3>
+        <p>Certaines distributions ont une longue « queue » d'un côté (par exemple les revenus&nbsp;: quelques très hauts salaires). La moyenne est alors <em>tirée</em> vers la queue, alors que la médiane résiste.</p>
+      </div>
+    </div>
+
+    <h2>La planche de Galton</h2>
+    <p>
+      Chaque bille rebondit sur des clous et part au hasard à gauche ou à droite (une chance sur deux).
+      Lâche beaucoup de billes&nbsp;: quelle forme apparaît dans les cases&nbsp;?
+    </p>
+    <div class="card">
+      <canvas id="galton" class="galton" height="420" aria-label="Planche de Galton animée"></canvas>
+      <div class="legend">
+        <span><i style="background:var(--c1)"></i>billes tombées</span>
+        <span><i style="background:var(--c3)"></i>répartition attendue (théorie)</span>
+      </div>
+      <div class="toolbar">
+        <button class="btn btn-primary" data-drop="1">Lâcher 1 bille</button>
+        <button class="btn" data-drop="50">50 billes</button>
+        <button class="btn" data-drop="300">300 billes</button>
+        <button class="btn" id="galton-reset">↺ Vider</button>
+        <span id="galton-count" style="color:var(--muted)"></span>
+      </div>
+      <label class="slider-row" for="galton-rows">
+        <span style="white-space:nowrap">Rangées de clous</span>
+        <input type="range" id="galton-rows" min="4" max="14" value="10">
+        <output id="galton-rows-out">10</output>
+      </label>
+    </div>
+    <div class="callout">
+      <strong>Pourquoi une cloche&nbsp;?</strong> Pour arriver tout au bord, une bille doit aller <em>toujours</em> du même côté&nbsp;: c'est très rare.
+      Il existe bien plus de chemins qui mélangent gauche et droite et mènent au centre.
+    </div>
+
+    <h2>Le jeu : moyenne ou médiane&nbsp;?</h2>
+    <p>
+      Observe la forme de l'histogramme et devine comment se placent la moyenne et la médiane.
+      Indice&nbsp;: la moyenne se laisse attirer par la longue queue de la distribution…
+    </p>
+    <div id="game"></div>
+
+    <nav class="next-module">
+      <a class="btn" href="probabilites.html">← Les probabilités</a>
+      <a class="btn btn-primary" href="correlation.html">Module suivant : la corrélation →</a>
+    </nav>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/distribution.js"></script>
+</body>
+</html>

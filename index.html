@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StatLab — Les statistiques en jouant</title>
+  <meta name="description" content="Apprendre les notions de base des statistiques grâce à des mini-jeux interactifs.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="tag">Statistiques de base · niveau débutant</span>
+      <h1 style="margin-top:12px">Comprendre les statistiques… en jouant&nbsp;!</h1>
+      <p class="lead">
+        Moyenne, écart-type, probabilités, corrélation : chaque notion est expliquée simplement,
+        illustrée par une manipulation interactive, puis mise à l'épreuve dans un mini-jeu.
+        Aucune inscription, aucun calcul compliqué — juste de la curiosité.
+      </p>
+    </section>
+
+    <section>
+      <h2>Les modules</h2>
+      <div class="modules" id="modules"></div>
+    </section>
+
+    <section>
+      <h2>Comment ça marche&nbsp;?</h2>
+      <ol class="steps">
+        <li><strong>Lis la leçon</strong> : quelques définitions courtes, avec un exemple concret.</li>
+        <li><strong>Manipule</strong> : déplace des points, lance des dés, lâche des billes… et observe ce qui change.</li>
+        <li><strong>Joue</strong> : chaque module se termine par un jeu en plusieurs manches, avec une correction expliquée.</li>
+        <li><strong>Progresse</strong> : ton meilleur score est enregistré ici, dans ton navigateur. Termine par le quiz final&nbsp;!</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const box = document.getElementById('modules');
+      MODULES.forEach((m, i) => {
+        const best = Progress.best(m.id);
+        const badge = best
+          ? el('span', { class: 'badge done' }, [`✓ Meilleur score : ${fmt(best.score, 0)} / ${fmt(best.max, 0)}`])
+          : el('span', { class: 'badge' }, ['Pas encore commencé']);
+        box.append(el('a', { class: 'module-card', href: m.href }, [
+          el('span', { class: 'emoji', 'aria-hidden': 'true' }, [m.emoji]),
+          el('h3', {}, [`${i + 1}. ${m.titre}`]),
+          el('p', {}, [m.resume]),
+          badge,
+        ]));
+      });
+    });
+  </script>
+</body>
+</html>
