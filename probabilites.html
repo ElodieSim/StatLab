@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Probabilités — StatLab</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main class="container">
+    <span class="tag">Module 3</span>
+    <h1 style="margin-top:12px">Les probabilités</h1>
+    <p class="lead">
+      Une probabilité est un nombre entre 0 et 1 (ou entre 0&nbsp;% et 100&nbsp;%) qui dit à quel point un événement a des chances de se produire.
+      0 = impossible, 1 = certain.
+    </p>
+
+    <h2>La leçon</h2>
+    <div class="def-grid">
+      <div class="card">
+        <h3>🎯 Cas favorables ÷ cas possibles</h3>
+        <p>Quand tous les résultats ont la même chance, on compte&nbsp;:</p>
+        <div class="formula">P = cas favorables ÷ cas possibles</div>
+        <p>Avec un dé, P(obtenir 6) = 1 ÷ 6 ≈ 16,7&nbsp;%.<br>P(obtenir un nombre pair) = 3 ÷ 6 = 50&nbsp;%.</p>
+      </div>
+      <div class="card">
+        <h3>🎲🎲 Avec deux dés</h3>
+        <p>Il y a 6 × 6 = <strong>36</strong> résultats possibles, tous équiprobables.</p>
+        <p>La somme 7 s'obtient de 6 façons (1+6, 2+5, 3+4, 4+3, 5+2, 6+1)&nbsp;: P = 6/36 = 1/6.<br>
+        La somme 2 d'une seule façon (1+1)&nbsp;: P = 1/36.</p>
+      </div>
+      <div class="card">
+        <h3>📈 La loi des grands nombres</h3>
+        <p>Sur quelques lancers, le hasard fait n'importe quoi. Mais plus on répète l'expérience,
+          plus la <em>fréquence observée</em> se rapproche de la <em>probabilité théorique</em>.</p>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <strong>Piège classique — l'erreur du joueur&nbsp;:</strong> si une pièce est tombée 5 fois sur pile,
+      elle n'a pas « plus de chances » de tomber sur face au prochain lancer. Elle n'a pas de mémoire&nbsp;: c'est toujours 50&nbsp;%.
+    </div>
+
+    <h2>Le simulateur : lance deux dés</h2>
+    <p>
+      Les barres montrent la fréquence observée de chaque somme&nbsp;; les points verts la probabilité théorique.
+      Lance 10 fois, puis 1000 fois&nbsp;: que remarques-tu&nbsp;?
+    </p>
+    <div class="card">
+      <div class="toolbar">
+        <span class="dice" id="sim-dice" aria-live="polite">⚀ ⚀</span>
+        <span id="sim-count" style="color:var(--muted)"></span>
+      </div>
+      <svg id="sim-svg" class="chart" viewBox="0 0 600 260" role="img" aria-label="Fréquences des sommes de deux dés"></svg>
+      <div class="legend">
+        <span><i style="background:var(--c1)"></i>fréquence observée</span>
+        <span><i style="background:var(--c3)"></i>probabilité théorique</span>
+      </div>
+      <div class="toolbar">
+        <button class="btn btn-primary" data-roll="1">Lancer 1 fois</button>
+        <button class="btn" data-roll="10">×10</button>
+        <button class="btn" data-roll="100">×100</button>
+        <button class="btn" data-roll="1000">×1000</button>
+        <button class="btn" id="sim-reset">↺ Tout effacer</button>
+      </div>
+    </div>
+
+    <h2>Le jeu : le parieur malin</h2>
+    <p>
+      On lance deux dés. À chaque manche, deux paris te sont proposés&nbsp;: <strong>lequel a le plus de chances de gagner&nbsp;?</strong>
+      Parfois, les deux se valent… Astuce&nbsp;: compte les cas favorables parmi les 36 résultats possibles.
+    </p>
+    <div id="game"></div>
+
+    <nav class="next-module">
+      <a class="btn" href="dispersion.html">← La dispersion</a>
+      <a class="btn btn-primary" href="distribution.html">Module suivant : les distributions →</a>
+    </nav>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/probabilites.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Corrélation — StatLab</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main class="container">
+    <span class="tag">Module 5</span>
+    <h1 style="margin-top:12px">La corrélation</h1>
+    <p class="lead">
+      Quand on mesure deux choses sur les mêmes individus (la taille et le poids, les heures de révision et la note…),
+      on peut se demander si elles <em>évoluent ensemble</em>. C'est la question de la corrélation.
+    </p>
+
+    <h2>La leçon</h2>
+    <p>
+      On représente les données par un <strong>nuage de points</strong>&nbsp;: un point par individu, une variable en abscisse, l'autre en ordonnée.
+      Le <strong>coefficient de corrélation <em>r</em></strong> résume la tendance par un nombre entre −1 et +1&nbsp;:
+    </p>
+    <div class="mini-scatters" id="mini-scatters"></div>
+    <ul>
+      <li><strong>r proche de +1</strong>&nbsp;: quand l'une augmente, l'autre augmente aussi (relation croissante).</li>
+      <li><strong>r proche de −1</strong>&nbsp;: quand l'une augmente, l'autre diminue (relation décroissante).</li>
+      <li><strong>r proche de 0</strong>&nbsp;: pas de relation <em>linéaire</em>.</li>
+    </ul>
+
+    <div class="callout warn">
+      <strong>Corrélation ≠ causalité&nbsp;!</strong> Les ventes de glaces et le nombre de coups de soleil sont fortement corrélés.
+      Pourtant, les glaces ne donnent pas de coups de soleil&nbsp;: c'est le <em>soleil</em>, un troisième facteur, qui fait augmenter les deux.
+    </div>
+
+    <h2>Le jeu : devine la corrélation</h2>
+    <p>
+      Un nuage de points s'affiche&nbsp;: déplace le curseur pour estimer <em>r</em>, puis valide.
+      Plus tu es proche, plus tu marques de points (100 au maximum par manche).
+    </p>
+    <div id="game"></div>
+
+    <nav class="next-module">
+      <a class="btn" href="distribution.html">← Les distributions</a>
+      <a class="btn btn-primary" href="quiz.html">Dernière étape : le quiz final →</a>
+    </nav>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/correlation.js"></script>
+</body>
+</html>

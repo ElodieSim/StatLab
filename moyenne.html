@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moyenne, médiane, mode — StatLab</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main class="container">
+    <span class="tag">Module 1</span>
+    <h1 style="margin-top:12px">Moyenne, médiane, mode</h1>
+    <p class="lead">
+      Quand on a beaucoup de nombres (des notes, des tailles, des salaires…), on aime les résumer
+      par <em>une seule valeur</em> qui représente le « centre ». Il existe trois façons classiques de le faire.
+    </p>
+
+    <h2>La leçon</h2>
+    <p>Exemple : les notes de 5 élèves sont <strong>8, 12, 12, 14, 19</strong>.</p>
+    <div class="def-grid">
+      <div class="card">
+        <h3>⚖️ La moyenne</h3>
+        <p>On additionne toutes les valeurs, puis on divise par leur nombre.</p>
+        <div class="formula">moyenne = somme ÷ effectif</div>
+        <p>(8 + 12 + 12 + 14 + 19) ÷ 5 = 65 ÷ 5 = <strong>13</strong></p>
+      </div>
+      <div class="card">
+        <h3>📍 La médiane</h3>
+        <p>On range les valeurs dans l'ordre&nbsp;: la médiane est celle <em>du milieu</em>. La moitié des valeurs est en dessous, l'autre moitié au-dessus.</p>
+        <p>8, 12, <strong>12</strong>, 14, 19 → médiane = <strong>12</strong></p>
+        <p style="font-size:.93rem;color:var(--muted)">S'il y a un nombre pair de valeurs, on prend la moyenne des deux du milieu.</p>
+      </div>
+      <div class="card">
+        <h3>👑 Le mode</h3>
+        <p>C'est la valeur qui apparaît <em>le plus souvent</em>.</p>
+        <p>12 apparaît deux fois → mode = <strong>12</strong></p>
+        <p style="font-size:.93rem;color:var(--muted)">Une série peut avoir plusieurs modes, ou aucun mode clair.</p>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <strong>À retenir&nbsp;:</strong> la moyenne est très sensible aux <em>valeurs extrêmes</em>, la médiane beaucoup moins.
+      Si Bill Gates entre dans un café, le revenu <em>moyen</em> des clients explose… mais le revenu <em>médian</em> ne bouge presque pas&nbsp;!
+    </div>
+
+    <h2>Le laboratoire</h2>
+    <p>
+      Chaque point est une valeur. <strong>Fais glisser les points</strong> sur l'axe, ou <strong>clique sur l'axe</strong> pour en ajouter.
+      Observe comment la <b style="color:var(--c2)">moyenne</b> et la <b style="color:var(--c3)">médiane</b> réagissent.
+      Essaie d'ajouter une valeur extrême&nbsp;!
+    </p>
+    <div class="card">
+      <svg id="lab-svg" class="chart" viewBox="0 0 600 190" role="img" aria-label="Axe de 0 à 20 avec des points déplaçables"></svg>
+      <div class="legend">
+        <span><i style="background:var(--c2)"></i>moyenne</span>
+        <span><i style="background:var(--c3)"></i>médiane</span>
+      </div>
+      <div class="stats-line" id="lab-stats"></div>
+      <div class="toolbar">
+        <button class="btn" id="lab-add">+ Ajouter un point au hasard</button>
+        <button class="btn" id="lab-extreme">+ Ajouter une valeur extrême (20)</button>
+        <button class="btn" id="lab-remove">− Retirer le dernier point</button>
+        <button class="btn" id="lab-reset">↺ Réinitialiser</button>
+      </div>
+    </div>
+
+    <h2>Le jeu : le défi du calcul</h2>
+    <p>10 séries de nombres, 10 questions&nbsp;: à toi de trouver la moyenne, la médiane ou le mode. Un brouillon est autorisé&nbsp;!</p>
+    <div id="game"></div>
+
+    <nav class="next-module">
+      <a class="btn" href="index.html">← Accueil</a>
+      <a class="btn btn-primary" href="dispersion.html">Module suivant : la dispersion →</a>
+    </nav>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/moyenne.js"></script>
+</body>
+</html>

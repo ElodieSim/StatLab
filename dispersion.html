@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dispersion — StatLab</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main class="container">
+    <span class="tag">Module 2</span>
+    <h1 style="margin-top:12px">La dispersion</h1>
+    <p class="lead">
+      Deux classes peuvent avoir exactement la même moyenne… et être pourtant très différentes&nbsp;!
+      La dispersion mesure à quel point les valeurs sont <em>serrées</em> autour du centre ou au contraire <em>étalées</em>.
+    </p>
+
+    <h2>La leçon</h2>
+    <div class="card">
+      <p>Classe A : <strong>9, 10, 10, 10, 11</strong> — Classe B : <strong>2, 6, 10, 14, 18</strong></p>
+      <p>Les deux classes ont une moyenne de <strong>10</strong>. Mais dans la classe A tout le monde a à peu près 10, alors que la classe B va de 2 à 18.</p>
+    </div>
+
+    <div class="def-grid">
+      <div class="card">
+        <h3>📏 L'étendue</h3>
+        <p>La différence entre la plus grande et la plus petite valeur.</p>
+        <div class="formula">étendue = max − min</div>
+        <p>A : 11 − 9 = <strong>2</strong><br>B : 18 − 2 = <strong>16</strong></p>
+        <p style="font-size:.93rem;color:var(--muted)">Simple, mais elle ne regarde que les deux valeurs extrêmes.</p>
+      </div>
+      <div class="card">
+        <h3>🎯 L'écart-type</h3>
+        <p>C'est, en gros, <em>l'écart moyen</em> des valeurs par rapport à la moyenne. Plus il est grand, plus les données sont étalées.</p>
+        <p>A : ≈ <strong>0,6</strong><br>B : ≈ <strong>5,7</strong></p>
+        <p style="font-size:.93rem;color:var(--muted)">Il s'exprime dans la même unité que les données (points, cm, €…).</p>
+      </div>
+    </div>
+
+    <h3>Comment calcule-t-on l'écart-type&nbsp;?</h3>
+    <div class="card">
+      <ol>
+        <li>Calculer la moyenne <em>m</em>.</li>
+        <li>Pour chaque valeur, calculer l'écart à la moyenne, puis le mettre au carré (pour que les écarts négatifs ne compensent pas les positifs).</li>
+        <li>Faire la moyenne de ces carrés&nbsp;: c'est la <strong>variance</strong>.</li>
+        <li>Prendre la racine carrée&nbsp;: c'est l'<strong>écart-type</strong>.</li>
+      </ol>
+      <div class="formula">écart-type = √( moyenne des (x − m)² )</div>
+      <p style="margin:0">Exemple classe B&nbsp;: écarts −8, −4, 0, 4, 8 → carrés 64, 16, 0, 16, 64 → variance = 160 ÷ 5 = 32 → écart-type = √32 ≈ 5,7.</p>
+    </div>
+
+    <div class="callout">
+      <strong>Règle pratique&nbsp;:</strong> quand les données ont une forme « en cloche », environ <strong>2 valeurs sur 3</strong>
+      se trouvent à moins d'un écart-type de la moyenne.
+    </div>
+
+    <h2>Le jeu : qui est le plus dispersé&nbsp;?</h2>
+    <p>
+      À chaque manche, deux séries s'affichent. <strong>Clique sur celle dont l'écart-type est le plus grand.</strong>
+      Attention, ça devient de plus en plus serré au fil des manches&nbsp;!
+    </p>
+    <div id="game"></div>
+
+    <nav class="next-module">
+      <a class="btn" href="moyenne.html">← Moyenne, médiane, mode</a>
+      <a class="btn btn-primary" href="probabilites.html">Module suivant : les probabilités →</a>
+    </nav>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/dispersion.js"></script>
+</body>
+</html>
